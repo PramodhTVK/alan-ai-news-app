@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getNews } from "../Service/getNews";
 import moment from "moment";
-import alanBtn from '@alan-ai/alan-sdk-web';
 
 export default function NewsData() {
     const [newsData, setNewsData] = useState([]);
