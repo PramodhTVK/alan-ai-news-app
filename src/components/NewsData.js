@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { getNews } from "../Service/getNews";
 import moment from "moment";
+import alanBtn from '@alan-ai/alan-sdk-web';
 
 export default function NewsData() {
     const [newsData, setNewsData] = useState([]);
+    const alanKey = `5af992aafbb3090273ab90534044f3352e956eca572e1d8b807a3e2338fdd0dc/stage`;
     const [selectOption, setselectOption] = useState('');
     const getAllNews = async () => {
         let allNews = await getNews(selectOption);
@@ -14,9 +16,21 @@ export default function NewsData() {
         setselectOption(event.target.value)
     }
     useEffect(() => {
+        alanBtn({
+            key: alanKey,
+            onCommand: (commandData) => {
+              if (commandData.command === 'go:back') {
+                setselectOption(commandData.data)
+              }
+            }
+        });
+      }, []);
+
+    useEffect(() => {
         getAllNews();
     }, [selectOption]); 
     console.log(newsData)
+
     return (
         <div className="main">
         <h1>Voice News</h1>
