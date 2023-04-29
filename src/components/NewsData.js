@@ -19,9 +19,7 @@ export default function NewsData() {
         alanBtn({
             key: alanKey,
             onCommand: (commandData) => {
-              if (commandData.command === 'go:back') {
-                setselectOption(commandData.data)
-              }
+                setselectOption(commandData.data) 
             }
         });
       }, []);
@@ -29,14 +27,14 @@ export default function NewsData() {
     useEffect(() => {
         getAllNews();
     }, [selectOption]); 
-    console.log(newsData)
+
 
     return (
         <div className="main">
         <h1>Voice News</h1>
         <div className="select"><label for="cars">Choose a Category:</label>
 
-        <select className="select-box" name="category" id="category" onChange={selectCategory}>
+        <select className="select-box" name="category" id="category" onChange={selectCategory} value={selectOption}>
         <option value="general">General</option>
         <option value="health">Health</option>
         <option value="business">Business</option>
