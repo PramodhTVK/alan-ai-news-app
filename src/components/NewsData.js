@@ -22,12 +22,13 @@ export default function NewsData() {
                 setselectOption(commandData.data) 
             }
         });
-      }, []);
+      }, [alanKey]);
 
     useEffect(() => {
         getAllNews();
-    }, [selectOption]); 
-
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [selectOption]);
+    
 
     return (
         <div className="main">
