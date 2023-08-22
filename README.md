@@ -1,8 +1,8 @@
 # Voice News #
 - A News Reader App that categorises news into three categories :-
-      - Health
-      - Business
-      - Sports
+  - Health
+  - Business
+  - Sports          
 - ***Alan AI*** API was used in order to configure the voice commands.
 - User has to hit the button on the bottom right side of the screen and has to say out loud the news category he/she wishes to read.
 - The rest of the work will be done automatically . This was done with the help of **React Hooks** (primarily useState and useEffect).
